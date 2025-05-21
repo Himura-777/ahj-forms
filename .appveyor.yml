@@ -1,15 +1,21 @@
 version: 1.0.{build}
 image: Visual Studio 2019
 environment:
-  nodejs_version: "14"
+  nodejs_version: "16"
+
 install:
   - ps: Install-Product node $env:nodejs_version
   - npm install
+
 build_script:
   - npm run build
-on_success:
-  - git config --global credential.helper store
-  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
-  - git config --global user.email "%GIT_EMAIL%"
-  - git config --global user.name "%GIT_NAME%"
-  - npm run deploy
+
+artifacts:
+  - path: dist
+    name: dist
+
+deploy:
+  provider: GitHub
+  artifact: dist
+  on:
+    branch: main
