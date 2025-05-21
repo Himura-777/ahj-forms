@@ -21,4 +21,4 @@ deploy:
   provider: GitHub
   artifact: dist
   on:
-    branch: main
+    branch: master
