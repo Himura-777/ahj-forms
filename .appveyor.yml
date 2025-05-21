@@ -21,4 +21,4 @@ deploy:
   provider: GitHub
   artifact: dist
   on:
-    branch: master  # Или main, в зависимости от вашей основной ветки
+    branch: main
