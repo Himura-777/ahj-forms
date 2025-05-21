@@ -1,1 +1,1 @@
-1
+[![Build status](https://ci.appveyor.com/api/projects/status/github/Himura-777/ahj-forms?svg=true)](https://ci.appveyor.com/project/Himura-777/ahj-forms)

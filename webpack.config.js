@@ -16,25 +16,28 @@ module.exports = {
 				exclude: /node_modules/,
 				use: {
 					loader: 'babel-loader',
-				},
+					options: {
+						presets: ['@babel/preset-env']
+					}
+				}
 			},
 			{
 				test: /\.css$/,
 				use: [
 					MiniCssExtractPlugin.loader,
-					'css-loader',
-					'postcss-loader'
-				],
-			},
-		],
+					'css-loader'
+				]
+			}
+		]
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: './src/index.html',
+			filename: 'index.html'
 		}),
 		new MiniCssExtractPlugin({
-			filename: 'styles.css',
-		}),
+			filename: 'styles.css'
+		})
 	],
 	devServer: {
 		static: {
@@ -42,7 +45,6 @@ module.exports = {
 		},
 		compress: true,
 		port: 8080,
-		open: true,
-		hot: true,
-	},
+		open: true
+	}
 };
