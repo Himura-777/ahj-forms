@@ -1,6 +1,7 @@
 {
   "name": "ahj-forms",
   "version": "1.0.0",
+  "homepage": "https://Himura-777.github.io/ahj-forms",
   "description": "Popover widget implementation",
   "scripts": {
     "start": "webpack serve --mode development --open",

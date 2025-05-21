@@ -1,7 +1,7 @@
 version: 1.0.{build}
 image: Visual Studio 2019
 environment:
-  nodejs_version: "16"
+  nodejs_version: "14"
 
 install:
   - ps: Install-Product node $env:nodejs_version
@@ -9,6 +9,9 @@ install:
 
 build_script:
   - npm run build
+
+test_script:
+  - npm test
 
 artifacts:
   - path: dist
@@ -18,4 +21,4 @@ deploy:
   provider: GitHub
   artifact: dist
   on:
-    branch: main
+    branch: master  # Или main, в зависимости от вашей основной ветки
